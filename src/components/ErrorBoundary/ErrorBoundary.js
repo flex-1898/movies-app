@@ -1,12 +1,5 @@
 import { Component } from 'react';
-
 export class ErrorBoundary extends Component {
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {};
-    // }
-
     state = {
         error: null
     };
@@ -15,26 +8,13 @@ export class ErrorBoundary extends Component {
         return { error };
     }
 
-    componentDidCatch(error, info) {
-        console.log('[error]', error);
-        console.log('[info]', info);
-    }
-
     render() {
         const { children } = this.props;
         const { error } = this.state;
 
-        if (error) {
-            return (
-                <div>
-                    <h1>Hello World!</h1>
-                    {/* <strong>{error.name}</strong>
-                    <p>{error.message}</p>
-                    <p>{error.stack}</p> */}
-                </div>
-            );
-        }
+        if (!error) return children;
 
-        return children;
+        // TODO: Add implementation
+        return <div>{error.message}</div>;
     }
 }
