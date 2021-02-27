@@ -1,0 +1,44 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app {
+    height: 100%;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: $font-size-md;
+    font-family: $font-family-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.width-limiter {
+    max-width: $max-width-limit;
+    width: 100%;
+    margin: 0 auto;
+}

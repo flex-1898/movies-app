@@ -1,0 +1,75 @@
+@import '../../styles/variables';
+
+.home-page {
+    padding: $p-sm;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(15rem, 1fr));
+        grid-auto-rows: 50rem;
+        gap: 1.5rem;
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    &__list-item {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 0.2rem;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        outline: 0;
+        position: relative;
+        z-index: 1;
+        text-decoration: none;
+        transition: box-shadow 200ms ease;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: rgba($color-dark, 0.4);
+            transition: opacity 200ms ease;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0.8rem 0.5rem rgba($color-secondary, 0.3);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__title {
+        color: $color-light;
+        opacity: 0;
+        position: relative;
+        z-index: 2;
+        max-width: 85%;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        transition: opacity 200ms ease;
+    }
+
+    &__link:hover &__title,
+    &__link:focus &__title {
+        opacity: 1;
+    }
+}

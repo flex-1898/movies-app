@@ -2,36 +2,39 @@ import { useState } from 'react';
 import PT from 'prop-types';
 
 import { Layout } from '../../components/Layout/Layout';
+import { useFetch } from '../../hooks/useFetch';
+
+const { REACT_APP_MOVIES_API_KEY: apiKey, REACT_APP_MOVIES_API_URL: baseUrl } = process.env;
 
 export const LayoutContainer = ({ as: Component = Layout, ...other }) => {
     const [search, setSearch] = useState('');
-    const [movies, setMovies] = useState([]);
-    const [isSearching, setIsSearching] = useState(false);
+    const [page, setPage] = useState(1);
+
+    const url = `${baseUrl}/search/movie?api_key=${apiKey}&query=${search}&page=${page}`;
+
+    const { data, refetch, isFetching } = useFetch(url, {
+        enabled: false
+    });
 
     const handleChangeSearch = e => {
         setSearch(e.target.value);
     };
 
-    const handleSearchMovies = () => {
-        setIsSearching(true);
-
-        // Sending request...
-        setTimeout(() => {
-            const mockMovies = [1, 2, 3];
-
-            setMovies(mockMovies);
-            setIsSearching(false);
-        }, 3000);
+    const handleChangePage = pageNumber => {
+        setPage(pageNumber);
     };
+
+    const movies = data?.results || [];
 
     return (
         <Component
             {...other}
             search={search}
             movies={movies}
-            isSearching={isSearching}
+            isSearching={isFetching}
             onChangeSearch={handleChangeSearch}
-            onSearchMovies={handleSearchMovies}
+            onSearchMovies={refetch}
+            onChangePage={handleChangePage}
         />
     );
 };

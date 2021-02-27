@@ -1,0 +1,72 @@
+@import '../../styles/variables';
+
+.button {
+    display: block;
+    font-family: $font-family-primary;
+    font-size: $font-size-md;
+    cursor: pointer;
+
+    &--primary {
+        $color-primary-hover: darken($color-primary, 10%);
+
+        border: $border-width-primary solid $color-primary;
+        background-color: $color-primary;
+
+        &:focus {
+            background-color: $color-primary-hover;
+            box-shadow: 0 0 1rem 0.2rem rgba($color-primary-hover, 0.5);
+        }
+
+        &:hover {
+            background-color: $color-primary-hover;
+        }
+    }
+
+    &--secondary {
+        $color-secondary-hover: lighten($color-secondary, 10%);
+
+        border: $border-width-primary solid $color-secondary;
+        background-color: $color-secondary;
+
+        &:focus {
+            background-color: $color-secondary-hover;
+            box-shadow: 0 0 1rem 0.2rem rgba($color-secondary-hover, 0.5);
+        }
+
+        &:hover {
+            background-color: $color-secondary-hover;
+        }
+    }
+
+    &--primary,
+    &--secondary {
+        border-radius: 0.2rem;
+        padding: 1.25rem $p-lg;
+        color: $color-light;
+        outline: 0;
+        transition: box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease;
+
+        // This line needs to be below :hover to override it
+        &:disabled {
+            cursor: default;
+            border-color: $color-disabled;
+            background-color: $color-disabled;
+        }
+    }
+
+    &--tertiary {
+        border: none;
+        background-color: transparent;
+        text-decoration: underline transparent;
+        transition: text-decoration 200ms ease;
+
+        &:focus {
+            outline: 0.1rem solid currentColor;
+            outline-offset: 0.3rem;
+        }
+
+        &:hover {
+            text-decoration: underline initial;
+        }
+    }
+}

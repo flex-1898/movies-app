@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+.navigation {
+    &__list {
+        display: flex;
+    }
+
+    &__list-item {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-right: $m-md;
+        }
+    }
+
+    &__icon {
+        color: $color-light;
+        margin-right: $m-xs;
+    }
+
+    &__link {
+        color: $color-light;
+        text-decoration: underline transparent;
+
+        &.active,
+        &:hover {
+            color: $color-light;
+            text-decoration: underline $color-light;
+        }
+    }
+}

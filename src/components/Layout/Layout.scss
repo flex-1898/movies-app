@@ -1,0 +1,55 @@
+@import '../../styles/variables';
+
+.layout {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__title {
+        background-color: $color-primary;
+        color: $color-light;
+        text-align: center;
+        font-size: $font-size-md;
+        padding: 0.2rem 0;
+    }
+
+    &__header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__header {
+        padding: $p-sm;
+        background-color: $color-secondary;
+    }
+
+    &__search-wrapper {
+        display: flex;
+        max-width: 50rem;
+        width: 100%;
+        padding: $p-xs;
+        background-color: $color-light;
+    }
+
+    &__search-input {
+        margin-right: $m-xs;
+    }
+
+    &__main {
+        flex-grow: 1;
+    }
+
+    &__footer {
+        padding: $p-xs;
+        background-color: $color-primary;
+        text-align: center;
+    }
+
+    &__copyright {
+        color: $color-light;
+        font-size: $font-size-sm;
+        font-weight: 700;
+    }
+}

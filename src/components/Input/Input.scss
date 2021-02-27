@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.input {
+    display: block;
+    font-size: $font-size-md;
+    font-family: $font-family-primary;
+    border: $border-width-primary solid;
+    border-radius: 0.2rem;
+    width: 100%;
+    outline: 0;
+    padding: 1.15rem $p-sm;
+    transition: box-shadow 200ms ease, background-color 200ms ease;
+
+    &:focus {
+        box-shadow: 0 0 0.8rem 0.5rem rgba($color-secondary, 0.3);
+    }
+
+    &:disabled {
+        background-color: lighten($color-disabled, 10%);
+    }
+}
