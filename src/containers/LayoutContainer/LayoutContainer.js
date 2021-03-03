@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PT from 'prop-types';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { Layout } from '../../components/Layout/Layout';
 import { useFetch } from '../../hooks/useFetch';
@@ -10,10 +11,18 @@ export const LayoutContainer = ({ as: Component = Layout, ...other }) => {
     const [search, setSearch] = useState('');
     const [page, setPage] = useState(1);
 
+    const { pathname } = useLocation();
+    const history = useHistory();
+
     const url = `${baseUrl}/search/movie?api_key=${apiKey}&query=${search}&page=${page}`;
 
     const { data, refetch, isFetching } = useFetch(url, {
-        enabled: false
+        enabled: false,
+        onSuccess: () => {
+            if (pathname === '/') return;
+
+            history.push('/');
+        }
     });
 
     const handleChangeSearch = e => {
