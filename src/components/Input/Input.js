@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import PT from 'prop-types';
 import cn from 'classnames';
 
@@ -6,13 +7,16 @@ import './Input.scss';
 const DEFAULT_TYPE = 'text';
 const DEFAULT_AUTOCOMPLETE = 'off';
 
-export const Input = ({
-    type = DEFAULT_TYPE,
-    className,
-    autoComplete = DEFAULT_AUTOCOMPLETE,
-    ...other
-}) => (
-    <input {...other} type={type} className={cn('input', className)} autoComplete={autoComplete} />
+export const Input = forwardRef(
+    ({ type = DEFAULT_TYPE, className, autoComplete = DEFAULT_AUTOCOMPLETE, ...other }, ref) => (
+        <input
+            {...other}
+            ref={ref}
+            type={type}
+            className={cn('input', className)}
+            autoComplete={autoComplete}
+        />
+    )
 );
 
 Input.propTypes = {

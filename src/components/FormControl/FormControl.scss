@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+
+.form-control {
+    &__label {
+        display: inline-block;
+        font-size: $font-size-sm;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__error {
+        display: block;
+        margin-top: 0.3rem;
+        color: $color-danger;
+        font-size: 1rem;
+    }
+}

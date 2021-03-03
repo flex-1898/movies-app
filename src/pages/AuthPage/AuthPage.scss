@@ -1,0 +1,69 @@
+@import '../../styles/variables';
+
+.auth-page {
+    height: 100%;
+    padding: $p-xl $p-sm $p-xl;
+
+    &__form-wrapper {
+        max-width: 60rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: $p-md;
+        border-radius: 0.2rem;
+        box-shadow: 0 0 0.8rem rgba($color-dark, 0.3);
+    }
+
+    &__form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__fieldset {
+        margin-bottom: $m-md;
+    }
+
+    &__legend {
+        width: 100%;
+        font-size: $font-size-lg;
+        font-weight: 700;
+        text-align: center;
+        border-bottom: 0.1rem solid #ccc;
+        padding-bottom: $p-md;
+        margin-bottom: $m-md;
+    }
+
+    &__form-control {
+        &:not(:last-child) {
+            margin-bottom: $m-sm;
+        }
+    }
+
+    &__submit-button {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__divider {
+        width: 80%;
+        height: 0.1rem;
+        margin: $m-md auto;
+        background-color: #ccc;
+    }
+
+    &__note-wrapper {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__switch-button {
+        display: inline-block;
+        font-weight: 700;
+        text-decoration: underline;
+        transition: text-decoration 200ms ease;
+
+        &:hover {
+            text-decoration: underline transparent;
+        }
+    }
+}

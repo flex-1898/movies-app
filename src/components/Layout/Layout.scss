@@ -37,6 +37,10 @@
         margin-right: $m-xs;
     }
 
+    &__main-wrapper {
+        height: 100%;
+    }
+
     &__main {
         flex-grow: 1;
     }
